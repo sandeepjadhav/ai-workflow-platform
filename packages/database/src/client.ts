@@ -1,5 +1,5 @@
 import { PrismaClient }
-  from "@prisma/client";
+  from "../generated/client";
 
 declare global {
 
@@ -10,6 +10,7 @@ declare global {
 export const prisma =
   global.prisma ||
   new PrismaClient({
+
     log: [
       "query",
       "error",
