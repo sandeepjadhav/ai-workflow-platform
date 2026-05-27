@@ -1,7 +1,32 @@
-version: "3.9"
 
 services:
+  auth-service:
 
+    build:
+      context: .
+      dockerfile:
+        apps/auth-service/Dockerfile.dev
+
+    container_name: auth-service
+
+    working_dir: /workspace
+
+    ports:
+      - "3001:3001"
+
+    env_file:
+      - apps/auth-service/.env
+
+    depends_on:
+      - postgres
+      - kafka
+
+    volumes:
+      - .:/workspace
+
+    command:
+      pnpm --filter auth-service dev
+      
   postgres:
     image: postgres:16
 

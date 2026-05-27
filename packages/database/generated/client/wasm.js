@@ -133,7 +133,7 @@ const config = {
       "value": "prisma-client-js"
     },
     "output": {
-      "value": "/media/sandeep/Projects/ai-workflow-platform/packages/database/generated/client",
+      "value": "/home/sandeep/Projects/ai-workflow-platform/packages/database/generated/client",
       "fromEnvVar": null
     },
     "config": {
@@ -147,11 +147,11 @@ const config = {
       }
     ],
     "previewFeatures": [],
-    "sourceFilePath": "/media/sandeep/Projects/ai-workflow-platform/packages/database/prisma/schema.prisma",
+    "sourceFilePath": "/home/sandeep/Projects/ai-workflow-platform/packages/database/prisma/schema.prisma",
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -161,7 +161,6 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
-  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {

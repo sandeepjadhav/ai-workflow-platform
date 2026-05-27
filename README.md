@@ -7,12 +7,17 @@ ai-workflow-platform
 ## docker exec -it ai-postgres psql -U admin -d postgres
 ## \l
 
-pnpm --filter @repo/database prisma generate
-pnpm --filter @repo/database prisma migrate dev --name init
-docker exec -it ai-postgres psql -U admin
 \c ai_platform
 
 \dt
+
+
+docker compose down -v
+pnpm --filter @repo/database generate
+docker compose up
+pnpm --filter @repo/database migrate --name init
+
+pnpm --filter auth-service dev
 
 
 
@@ -20,3 +25,7 @@ docker exec -it ai-kafka kafka-console-consumer \
 --bootstrap-server localhost:9092 \
 --topic user.created \
 --from-beginning
+
+
+sudo lsof -i :5432
+sudo kill -9  <PID>
