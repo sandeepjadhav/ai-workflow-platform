@@ -1,7 +1,6 @@
-export * from "./producer";
+export * from "./producer/producer";
 
-export * from "./consumer";
+export * from "./consumer/consumer";
 
 export * from "./topics";
 
-export * from "./types";

@@ -1,5 +1,19 @@
-import { kafka }
-  from "./client";
+import {
+  Kafka,
+} from "kafkajs";
+
+import { serialize }
+  from "../utils/serializer";
+
+const kafka = new Kafka({
+
+  clientId:
+    "ai-platform",
+
+  brokers: [
+    "localhost:9092",
+  ],
+});
 
 export const producer =
   kafka.producer();
@@ -22,7 +36,9 @@ export async function connectProducer() {
 }
 
 export async function publishEvent<T>(
+
   topic: string,
+
   payload: T,
 ) {
 
@@ -36,9 +52,10 @@ export async function publishEvent<T>(
     topic,
 
     messages: [
+
       {
         value:
-          JSON.stringify(payload),
+          serialize(payload),
       },
     ],
   });

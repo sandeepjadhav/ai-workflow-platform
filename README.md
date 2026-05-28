@@ -5,10 +5,7 @@ ai-workflow-platform
 # TEST POSTGRES
 
 ## docker exec -it ai-postgres psql -U admin -d postgres
-## \l
-
 \c ai_platform
-
 \dt
 
 
@@ -16,8 +13,16 @@ docker compose down -v
 pnpm --filter @repo/database generate
 docker compose up
 pnpm --filter @repo/database migrate --name init
+pnpm --filter @repo/database migrate --name chat_models
+
+
+
 
 pnpm --filter auth-service dev
+pnpm --filter api-gateway dev
+pnpm --filter ai-orchestrator dev
+pnpm --filter chat-service dev
+
 
 
 
