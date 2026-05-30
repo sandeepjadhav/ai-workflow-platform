@@ -37,4 +37,33 @@ export class GeminiProvider
       response.text || ""
     );
   }
+
+  async *streamResponse(
+    prompt: string,
+  ): AsyncGenerator<string> {
+
+    const stream =
+      await ai.models.generateContentStream({
+
+        model:
+          "gemini-2.0-flash",
+
+        contents:
+          prompt,
+      });
+
+    for await (
+      const chunk
+      of stream
+    ) {
+
+      const text =
+        chunk.text;
+
+      if (text) {
+
+        yield text;
+      }
+    }
+  }
 }

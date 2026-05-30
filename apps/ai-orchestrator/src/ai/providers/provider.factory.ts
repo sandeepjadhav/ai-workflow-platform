@@ -9,9 +9,10 @@ import {
   GeminiProvider,
 } from "./gemini.provider";
 
-import {
-  DeepSeekProvider,
-} from "./deepseek.provider";
+// import {
+//   DeepSeekProvider,
+// } from "./deepseek.provider";
+import { OllamaProvider } from "./ollama.provider";
 
 export function getProvider():
   AIProvider {
@@ -20,12 +21,15 @@ export function getProvider():
     env.aiProvider
   ) {
 
-    case "deepseek":
-
-      return new DeepSeekProvider();
+    case "ollama":
+      return new OllamaProvider();
+  
+    // case "deepseek":
+    //   return new DeepSeekProvider();
 
     case "gemini":
-
+      return new GeminiProvider();
+    
     default:
 
       return new GeminiProvider();

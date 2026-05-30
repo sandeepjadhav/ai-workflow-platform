@@ -37,7 +37,10 @@ export async function startChatConsumer() {
 
     async (payload) => {
 
-      
+      console.log(
+        "Received Chat Message Created Event:",
+        payload,
+      );
 
       const aiResponse =
         await aiService

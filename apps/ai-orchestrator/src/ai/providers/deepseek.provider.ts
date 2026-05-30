@@ -1,52 +1,52 @@
-import OpenAI from "openai";
+// import OpenAI from "openai";
 
-import { env }
-  from "../../config/env";
+// import { env }
+//   from "../../config/env";
 
-import {
-  AIProvider,
-} from "./base.provider";
+// import {
+//   AIProvider,
+// } from "./base.provider";
 
-const client =
-  new OpenAI({
+// const client =
+//   new OpenAI({
 
-    apiKey:
-      env.deepseekApiKey,
+//     apiKey:
+//       env.deepseekApiKey,
 
-    baseURL:
-      "https://api.deepseek.com",
-  });
+//     baseURL:
+//       "https://api.deepseek.com",
+//   });
 
-export class DeepSeekProvider
-  implements AIProvider {
+// export class DeepSeekProvider
+//   implements AIProvider {
 
-  async generateResponse(
-    prompt: string,
-  ): Promise<string> {
+//   async generateResponse(
+//     prompt: string,
+//   ): Promise<string> {
 
-    const completion =
-      await client.chat.completions
-        .create({
+//     const completion =
+//       await client.chat.completions
+//         .create({
 
-          model:
-            "deepseek-chat",
+//           model:
+//             "deepseek-chat",
 
-          messages: [
+//           messages: [
 
-            {
-              role: "user",
+//             {
+//               role: "user",
 
-              content: prompt,
-            },
-          ],
-        });
+//               content: prompt,
+//             },
+//           ],
+//         });
 
-    return (
+//     return (
 
-      completion
-        .choices[0]
-        ?.message
-        ?.content || ""
-    );
-  }
-}
+//       completion
+//         .choices[0]
+//         ?.message
+//         ?.content || ""
+//     );
+//   }
+// }

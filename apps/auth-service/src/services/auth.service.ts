@@ -91,15 +91,15 @@ export class AuthService {
       throw new Error(
         "Invalid credentials",
       );
-    }
+    }                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 
 
-    await publishEvent(
-      TOPICS.USER_LOGGED_IN,
+    // await publishEvent(
+    //   TOPICS.USER_LOGGED_IN,
 
-      {
-        userId: user.id,
-      },
-    );
+    //   {
+    //     userId: user.id,
+    //   },
+    // );
 
     return this.generateTokens(user);
   }

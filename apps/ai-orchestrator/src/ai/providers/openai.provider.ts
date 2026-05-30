@@ -1,13 +1,39 @@
-export class OpenAIProvider {
+// import OpenAI from "openai";
 
-  async generateResponse(
-    message: string,
-  ) {
 
-    /*
-      REAL OPENAI CALL LATER
-    */
+// const openai = new OpenAI({
+//   apiKey: process.env.OPENAI_API_KEY,
+// });
 
-    return `AI Response to: ${message}`;
-  }
-}
+// export class OpenAIProvider {
+
+//   async generateResponse(
+//     prompt: string,
+//   ): Promise<string> {
+
+//     const completion =
+//       await openai.chat.completions
+//         .create({
+
+//           model:
+//             'gpt-4o',
+
+//           messages: [
+
+//             {
+//               role: "user",
+
+//               content: prompt,
+//             },
+//           ],
+//         });
+
+//     return (
+
+//       completion
+//         .choices[0]
+//         ?.message
+//         ?.content || ""
+//     );
+//   }
+// }

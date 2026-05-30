@@ -1,20 +1,28 @@
 import {
   Kafka,
 } from "kafkajs";
-
+import {env } from "../env";
 import {
   deserialize,
 } from "../utils/serializer";
 
-const kafka = new Kafka({
+// const kafka = new Kafka({
+//   clientId:
+//     "ai-platform",
+//   brokers: [
+//     "localhost:9092",
+//   ],
+// });
 
-  clientId:
-    "ai-platform",
-
-  brokers: [
-    "localhost:9092",
-  ],
-});
+const redpanda = new Kafka({
+  brokers: ["d8cl1phjqgbv1u6eu12g.any.ap-south-1.mpx.prd.cloud.redpanda.com:9092"],
+  ssl: {},
+  sasl: {
+    mechanism: "scram-sha-512",
+    username: env.kafkaConsumerUsername,
+    password: env.kafkaConsumerPassword
+  }
+})
 
 export async function consumeEvent<T>(
 
@@ -27,10 +35,8 @@ export async function consumeEvent<T>(
   ) => Promise<void>,
 ) {
 
-  const consumer =
-    kafka.consumer({
-      groupId,
-    });
+  // const consumer = kafka.consumer({ groupId, });
+  const consumer = redpanda.consumer({ groupId })
 
   await consumer.connect();
 
@@ -56,7 +62,7 @@ export async function consumeEvent<T>(
 
         try {
           console.log(
-            "Received Raw Message:",
+            "                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             Raw Message:",
             message,
           );
           console.log(

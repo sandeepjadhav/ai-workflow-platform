@@ -12,5 +12,11 @@ export const env = {
 
   aiProvider:
     process.env.AI_PROVIDER ||
-    "gemini",
+    "ollama",
+  ollamaModel:
+    process.env.OLLAMA_MODEL ||
+    "gemma:2b",
+  ollamaBaseUrl:
+    process.env.OLLAMA_BASE_URL ||
+    "http://localhost:11434",
 };

@@ -1,22 +1,31 @@
 import {
+  CompressionTypes,
   Kafka,
 } from "kafkajs";
-
+import { env } from "../env";
 import { serialize }
   from "../utils/serializer";
+// const kafka = new Kafka({
+//   clientId:
+//     "ai-platform",
+//   brokers: [
+//     "localhost:9092",
+//   ],
+// });
+// export const producer =
+//   kafka.producer();
 
-const kafka = new Kafka({
+const redpanda = new Kafka({
+  brokers: ["d8cl1phjqgbv1u6eu12g.any.ap-south-1.mpx.prd.cloud.redpanda.com:9092"],
+  ssl: {},
+  sasl: {
+    mechanism: "scram-sha-512",
+    username: env.kafkaProducerUsername,
+    password: env.kafkaProducerPassword
+  }
+})
+export const producer = redpanda.producer();
 
-  clientId:
-    "ai-platform",
-
-  brokers: [
-    "localhost:9092",
-  ],
-});
-
-export const producer =
-  kafka.producer();
 
 let connected = false;
 
@@ -50,7 +59,7 @@ export async function publishEvent<T>(
   await producer.send({
 
     topic,
-
+    compression: CompressionTypes.GZIP,
     messages: [
 
       {
