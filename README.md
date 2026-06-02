@@ -34,3 +34,9 @@ docker exec -it ai-kafka kafka-console-consumer \
 
 sudo lsof -i :5432
 sudo kill -9  <PID>
+
+
+
+
+https://a9152028-0b33-4cbb-8ff9-e2ec7952a426.us-east-2-0.aws.cloud.qdrant.io
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhY2Nlc3MiOiJtIiwic3ViamVjdCI6ImFwaS1rZXk6NDg2NjgwNDMtMDMyNi00NzEzLTlmN2QtMzA1ZTA4ZDAzZGVlIn0.ty5HlkswFvWeYmpjRZUDk-9262gefZRv6fQ1am4dUcY

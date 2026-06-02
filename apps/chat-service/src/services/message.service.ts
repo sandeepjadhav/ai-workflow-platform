@@ -37,7 +37,7 @@ export class MessageService {
           content,
         },
       });
-
+    // Publish event to Kafka, which will be consumed by AI Orchestrator
     await publishEvent(
       TOPICS.CHAT_MESSAGE_CREATED,
       {
@@ -48,6 +48,7 @@ export class MessageService {
         content,
       },
     );
+
     return message;
   }
 

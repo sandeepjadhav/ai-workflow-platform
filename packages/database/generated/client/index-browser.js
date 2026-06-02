@@ -147,6 +147,15 @@ exports.Prisma.MessageScalarFieldEnum = {
   createdAt: 'createdAt'
 };
 
+exports.Prisma.DocumentScalarFieldEnum = {
+  id: 'id',
+  userId: 'userId',
+  name: 'name',
+  status: 'status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
 exports.Prisma.SortOrder = {
   asc: 'asc',
   desc: 'desc'
@@ -166,7 +175,8 @@ exports.Prisma.NullsOrder = {
 exports.Prisma.ModelName = {
   User: 'User',
   Conversation: 'Conversation',
-  Message: 'Message'
+  Message: 'Message',
+  Document: 'Document'
 };
 
 /**
