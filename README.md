@@ -79,3 +79,6 @@ You now have:
 ✅ Ollama Embeddings
 ✅ Qdrant Vector Search
 ✅ Complete RAG Pipeline
+
+![alt text](<Screenshot from 2026-06-06 16-46-11.png>)
+
