@@ -27,4 +27,22 @@ router.use(
   }),
 );
 
+router.use(
+  "/chat",
+  createProxyMiddleware({
+    target: env.chatServiceUrl,
+    changeOrigin: true,
+  }),
+);
+
+router.use(
+  "/knowledge",
+  createProxyMiddleware({
+    target: env.knowledgeServiceUrl,
+    changeOrigin: true,
+  }),
+);
+
+
+
 export default router;

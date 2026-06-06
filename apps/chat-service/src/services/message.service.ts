@@ -65,7 +65,10 @@ export class MessageService {
             userId,
           },
         });
-
+        console.log(
+          "Fetched conversation:",
+          conversation,
+        );
     if (!conversation) {
       throw new Error(
         "Conversation not found",

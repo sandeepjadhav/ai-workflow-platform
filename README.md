@@ -22,7 +22,9 @@ pnpm --filter auth-service dev
 pnpm --filter api-gateway dev
 pnpm --filter ai-orchestrator dev
 pnpm --filter chat-service dev
+pnpm --filter web-ui dev
 
+pnpm --filter knowledge-service dev
 
 
 

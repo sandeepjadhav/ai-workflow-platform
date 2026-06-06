@@ -40,7 +40,7 @@ export async function uploadDocument(
 
         id: documentId,
 
-        userId: "TEMP_USER",
+        userId: req.user?.userId || "anonymous",
 
         name: file.originalname,
 
@@ -70,3 +70,36 @@ export async function uploadDocument(
     });
   }
 }
+
+export async function getDocuments(
+   req: Request,
+  res: Response,
+) {
+
+  const documents = await prisma.document.findMany({
+    where: {
+      userId: req.user?.userId || "anonymous",
+    },
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
+   return res.json(documents);
+}
+
+export async function deleteDocument(
+  req: Request,
+  res: Response,
+) {
+
+  const document = await prisma.document.delete({
+    where: {
+      id: req.params.id,
+    },
+  });
+   return res.json();
+};
+
+   
+  
+

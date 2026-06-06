@@ -11,7 +11,7 @@ export function generateAccessToken(
         payload,
         env.jwtSecret,
         {
-            expiresIn: "15m",
+            expiresIn: "1d",
         },
     );
 }
